@@ -30,6 +30,43 @@
 (mod_item
   name: (identifier) @namespace)
 
+((identifier) @type.prelude
+ (#any-of?
+    @type.prelude
+    "Result"
+    "Option"
+    "Vec"
+    "Box"
+    "Clone"
+    "Iterator"
+    "IntoIterator"
+    "DoubleEndedIterator"
+    "ExactSizeIterator"
+    "String"
+    "ToString"
+    "TryFrom"
+    "TryInto"))
+
+((type_identifier) @type.prelude
+ (#any-of?
+    @type.prelude
+    "Result"
+    "Option"
+    "Vec"
+    "Box"
+    "Clone"
+    "Iterator"
+    "IntoIterator"
+    "DoubleEndedIterator"
+    "ExactSizeIterator"
+    "String"
+    "ToString"
+    "TryFrom"
+    "TryInto"))
+
+; ((type_identifier) @type.builtin
+;  (#any-of? @type.prelude "Result" "Option" "Vec" "Box" "Clone" "Iterator" "IntoIterator" "DoubleEndedIterator" "ExactSizeIterator" "String" "ToString" "TryFrom" "TryInto"))
+
 (self) @variable.builtin
 
 (loop_label ["'" (identifier)] @label)
