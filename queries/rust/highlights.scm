@@ -23,9 +23,9 @@
 (mod_item
  name: (identifier) @namespace)
 
-((identifier) @type.prelude
+((identifier) @type.builtin
  (#any-of?
-    @type.prelude
+    @type.builtin
     "Result"
     "Option"
     "Vec"
@@ -40,9 +40,9 @@
     "TryFrom"
     "TryInto"))
 
-((type_identifier) @type.prelude
+((type_identifier) @type.builtin
  (#any-of?
-    @type.prelude
+    @type.builtin
     "Result"
     "Option"
     "Vec"
@@ -230,6 +230,8 @@
 "fn" @keyword.function
 "return" @keyword.return
 
+(mutable_specifier) @TSRustMutSpecifier
+
 (type_cast_expression "as" @keyword.operator)
 
 (use_list (self) @keyword)
@@ -298,6 +300,9 @@
 (closure_parameters "|"    @punctuation.bracket)
 (type_arguments  ["<" ">"] @punctuation.bracket)
 (type_parameters ["<" ">"] @punctuation.bracket)
+
+(type_arguments  ["<" ">"] @TSRustGeneric)
+(type_parameters ["<" ">"] @TSRustGeneric)
 
 ["," "." ":" "::" ";"] @punctuation.delimiter
 
