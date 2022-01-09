@@ -30,9 +30,9 @@
 (mod_item
   name: (identifier) @namespace)
 
-((identifier) @type.prelude
+((identifier) @type.builtin
  (#any-of?
-    @type.prelude
+    @type.builtin
     "Result"
     "Option"
     "Vec"
@@ -47,9 +47,9 @@
     "TryFrom"
     "TryInto"))
 
-((type_identifier) @type.prelude
+((type_identifier) @type.builtin
  (#any-of?
-    @type.prelude
+    @type.builtin
     "Result"
     "Option"
     "Vec"
@@ -63,9 +63,6 @@
     "ToString"
     "TryFrom"
     "TryInto"))
-
-; ((type_identifier) @type.builtin
-;  (#any-of? @type.prelude "Result" "Option" "Vec" "Box" "Clone" "Iterator" "IntoIterator" "DoubleEndedIterator" "ExactSizeIterator" "String" "ToString" "TryFrom" "TryInto"))
 
 (self) @variable.builtin
 
@@ -313,6 +310,8 @@
   "yield"
 ] @keyword.return
 
+(mutable_specifier) @TSRustMutSpecifier
+
 (type_cast_expression "as" @keyword.operator)
 
 (qualified_type "as" @keyword.operator)
@@ -396,6 +395,8 @@
 (for_lifetimes ["<" ">"] @punctuation.bracket)
 
 ["," "." ":" "::" ";" "->" "=>"] @punctuation.delimiter
+(type_parameters ["<" ">"] @TSRustGeneric)
+
 
 (attribute_item "#" @punctuation.special)
 
