@@ -135,8 +135,16 @@
  (#lua-match? @type "^[A-Z]"))
 
 ((scoped_identifier
+  path: (identifier) @TSRustTypeInPath)
+ (#lua-match? @TSRustTypeInPath "^[A-Z]"))
+
+((scoped_identifier
     name: (identifier) @type)
  (#lua-match? @type "^[A-Z]"))
+
+((scoped_identifier
+    name: (identifier) @TSRustTypeInPath)
+ (#lua-match? @TSRustTypeInPath "^[A-Z]"))
 
 ((scoped_identifier
     name: (identifier) @constant)
